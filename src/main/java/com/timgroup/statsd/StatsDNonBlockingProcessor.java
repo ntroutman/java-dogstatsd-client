@@ -51,7 +51,7 @@ public class StatsDNonBlockingProcessor extends StatsDProcessor {
                 aggregatorShards,
                 threadFactory);
         this.qsize = new AtomicInteger(0);
-        this.messages = new ConcurrentLinkedQueue<>();
+        this.messages = new ArrayBlockingQueue<>(qcapacity);
     }
 
     @Override
